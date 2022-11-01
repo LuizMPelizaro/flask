@@ -1,5 +1,3 @@
-from socket import J1939_NLA_BYTES_ACKED
-from tkinter.messagebox import RETRY
 from flask import Flask, render_template, request, jsonify
 import os
 import predictions
@@ -24,7 +22,10 @@ def predict():
 
         y_pred = predictions.predict(dados)
 
-        return jsonify({"Resultado": y_pred})
+        return jsonify({"Setosa": f'{y_pred[0]}',
+                        "Versicolor": f'{y_pred[1]}',
+                        "Virginica": f'{y_pred[2]}'
+                        })
     elif request.method == 'GET':
         return jsonify({"messagem": "Utilize o formulário"})
 
