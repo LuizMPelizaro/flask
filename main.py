@@ -15,7 +15,8 @@ def index():
 def predict():
     if request.method == 'POST':
         return jsonify(request.form)
-    return jsonify({"messagem": "Utilize o formulário"})
+    elif request.method == 'GET'
+        return jsonify({"messagem": "Utilize o formulário"})
 
 
 if __name__ == '__main__':
